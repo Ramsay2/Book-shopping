@@ -42,12 +42,7 @@ jobs:
           ${{ runner.os }}-gradle-caches-
 
     - name: Build APK
-      run: |
-        if [ "${{ matrix.branch }}" == "dev" ]; then
-          ./gradlew assembleDevDebug
-        elif [ "${{ matrix.branch }}" == "uat" ]; then
-          ./gradlew assembleUatDebug
-        fi
+      run: ./gradlew assembleRelease
 
     - name: Upload APK
       uses: actions/upload-artifact@v3
